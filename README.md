@@ -3,6 +3,8 @@
 Small cross-platform (Linux, macOS, Windows) helper. Connects to a websocket, ignores everything except
 `"type":"passAlert"` messages, and notifies **all enabled services** (currently Pushover and DAPNET).
 
+![](/img/pager.jpg)
+
 ## Install & run
 ```
 pip install -r requirements.txt          # Python 3.9+
