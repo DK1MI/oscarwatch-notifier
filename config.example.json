@@ -1,0 +1,25 @@
+{
+  "websocket": {
+    "url": "ws://localhost:7373"
+  },
+  "dedupe": true,
+  "notifiers": {
+    "pushover": {
+      "enabled": true,
+      "app_token": "YOUR_PUSHOVER_APP_TOKEN",
+      "user_key": "YOUR_PUSHOVER_USER_KEY",
+      "device": "",
+      "priority": 0,
+      "sound": ""
+    },
+    "dapnet": {
+      "enabled": true,
+      "url": "http://hampager.de/api/calls",
+      "username": "yourcallsign",
+      "password": "yourpassword",
+      "callsigns": ["destinationcallsign"],
+      "transmitter_groups": ["txgroup"],
+      "emergency": false
+    }
+  }
+}
