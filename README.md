@@ -1,7 +1,7 @@
 # oscarwatch-notifier
 
 Small cross-platform (Linux, macOS, Windows) helper. Connects to a websocket, ignores everything except
-`"type":"passAlert"` messages, and notifies **all enabled services** (currently Pushover and DAPNET/hampager.de).
+`"type":"passAlert"` messages, and notifies **all enabled services** (currently Pushover and DAPNET).
 
 ## Install & run
 ```
@@ -12,6 +12,11 @@ python -m oscarwatch_notifier --test      # send a test notification and exit
 ```
 
 ## Websocket configuration (default `ws://localhost:7373`)
+
+In order to receive messages from OscarWatch, enable "Satellite Link" in OscarWatch's **Settings -> Integrations -> Satellite Link**.
+
+Configure the URL with the IP address of the system on which OscarWatch is running and the port that you have configured in the integrations setup (default is 7373).
+
 Precedence: CLI > environment > config file > default.
 
 | Setting | CLI | Env | config.json (`websocket`) |
