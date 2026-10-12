@@ -18,7 +18,7 @@ def default_config_path() -> Path:
         base = Path.home() / "Library" / "Application Support"
     else:
         base = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config"))
-    return base / "passalert-notifier" / "config.json"
+    return base / "oscarwatch-notifier" / "config.json"
 
 
 def load_config(path, ws_url=None, host=None, port=None) -> dict:
@@ -36,9 +36,9 @@ def load_config(path, ws_url=None, host=None, port=None) -> dict:
 
     ws = cfg["websocket"]
     # Precedence: CLI > environment > config file > defaults
-    ws_url = ws_url or os.environ.get("PASSALERT_WS_URL")
-    host = host or os.environ.get("PASSALERT_WS_HOST") or ws.get("host")
-    port = port or os.environ.get("PASSALERT_WS_PORT") or ws.get("port")
+    ws_url = ws_url or os.environ.get("OSCARWATCH_WS_URL")
+    host = host or os.environ.get("OSCARWATCH_WS_HOST") or ws.get("host")
+    port = port or os.environ.get("OSCARWATCH_WS_PORT") or ws.get("port")
     if ws_url:
         ws["url"] = ws_url
     elif host or port or not ws.get("url"):

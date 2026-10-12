@@ -54,3 +54,14 @@ class PassAlert:
         eta = f" in {_mins(self.seconds_until_aos)}" if self.seconds_until_aos is not None else ""
         t = f"{self.name}{eta} AOS {_hhmm_utc(self.aos)} LOS {_hhmm_utc(self.los)}Z El {self.max_el:.0f}deg"
         return t[:limit]
+
+
+def make_test_message() -> dict:
+    from datetime import timedelta
+    now = datetime.now(timezone.utc)
+    fmt = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    return {"type": "passAlert", "pass": {
+        "satellite": {"name": "TEST-SAT", "noradId": "00000"},
+        "aosUtc": fmt(now + timedelta(minutes=5)),
+        "losUtc": fmt(now + timedelta(minutes=13)),
+        "maxElevationDeg": 42.0, "secondsUntilAos": 300}}
